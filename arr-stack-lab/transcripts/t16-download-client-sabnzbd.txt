@@ -1,0 +1,52 @@
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @dc-sonarr-post.json http://localhost:8989/api/v3/downloadclient   (add SABnzbd, disabled, nothing listening on 8080 in the lab)
+saved: id 1 | name: SABnzbd (lab) | implementation: Sabnzbd | enable: False | protocol: usenet
+
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @dc-radarr-post.json http://localhost:7878/api/v3/downloadclient   (same for Radarr)
+saved: id 1 | name: SABnzbd (lab) | implementation: Sabnzbd | enable: False | protocol: usenet
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/downloadclient   (read back)
+1 SABnzbd (lab) | enabled: False
+$ curl -s -X POST -H "X-Api-Key: KEY" http://localhost:8989/api/v3/downloadclient/test/1   (test the connection honestly)
+$ curl -s -w "%{http_code}" -X POST -H "X-Api-Key: KEY" http://localhost:8989/api/v3/downloadclient/test/1
+-- Sonarr test HTTP status and body:
+
+HTTP 405
+-- Radarr test HTTP status and body:
+
+HTTP 405
+-- the route the settings screen actually uses: POST the whole client definition to /downloadclient/test
+$ curl -s -w "HTTP %{http_code}" -X POST -H "X-Api-Key: KEY" -d @dc-sonarr-post.json http://localhost:8989/api/v3/downloadclient/test
+[
+  {
+    "propertyName": "Name",
+    "errorMessage": "Should be unique",
+    "attemptedValue": "SABnzbd (lab)",
+    "severity": "error",
+    "errorCode": "PredicateValidator",
+    "formattedMessageArguments": [],
+    "formattedMessagePlaceholderValues": {
+      "propertyName": "Name",
+      "propertyValue": "SABnzbd (lab)"
+    }
+  }
+]
+HTTP 400
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @dc-sonarr-test.json http://localhost:8989/api/v3/downloadclient/test   (same definition, fresh name — now the connection itself is tested)
+[
+  {
+    "isWarning": false,
+    "detailedDescription": "Unable to connect to SABnzbd, Connection refused (127.0.0.1:8080)",
+    "propertyName": "Host",
+    "errorMessage": "Unable to connect to SABnzbd",
+    "severity": "error"
+  },
+  {
+    "isWarning": false,
+    "propertyName": "",
+    "errorMessage": "Test was aborted due to an error: Unable to connect to SABnzbd, Connection refused (127.0.0.1:8080)",
+    "severity": "error"
+  }
+]
+HTTP 400
+Host -> Unable to connect to SABnzbd
+ -> Test was aborted due to an error: Unable to connect to SABnzbd, Connection refused (127.0.0.1:8080)

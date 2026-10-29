@@ -1,0 +1,11 @@
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/series/lookup?term=Dragnet"
+Dragnet | tvdbId: 77570 | year: 1967 | network: NBC | status: ended
+The Dragnet | tvdbId: 415392 | year: 2021 | network: iQIYI | status: ended
+Dragnet (1989) | tvdbId: 74467 | year: 1989 | network: None | status: ended
+Dragnet (1951) | tvdbId: 72763 | year: 1951 | network: NBC | status: ended
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:7878/api/v3/movie/lookup?term=Night%20of%20the%20Living%20Dead"
+Night of the Living Dead | tmdbId: 10331 | year: 1968 | status: released
+Night of the Living Dead | tmdbId: 19185 | year: 1990 | status: released
+Night of the Living Dead | tmdbId: 1645603 | year: 2026 | status: released
+Fright Night of the Living Dead | tmdbId: 766069 | year: 1986 | status: announced

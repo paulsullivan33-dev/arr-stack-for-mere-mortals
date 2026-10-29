@@ -1,0 +1,20 @@
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @mi-sonarr-cmd.json http://localhost:8989/api/v3/command   (ManualImport command, move mode)
+command id: 19 | name: ManualImport | status: queued | message: None
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @mi-radarr-cmd.json http://localhost:7878/api/v3/command   (ManualImport command, move mode)
+command id: 20 | name: ManualImport | status: started | message: None
+
+$ find media -type f   (the library after the ManualImport commands)
+media/movies/Night of the Living Dead (1968)/Night of the Living Dead (1968) WEBDL-480p.mkv
+media/tv/Dragnet (1951)/Season 1/Dragnet (1951) - S01E01 - The Human Bomb SDTV.mkv
+$ ls -A downloads/
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/episodefile?seriesId=1"
+episode file: Season 1/Dragnet (1951) - S01E01 - The Human Bomb SDTV.mkv | quality: SDTV | size: 20381707
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/series
+Dragnet (1951) | episodes on disk: 1 / 276
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/movie
+Night of the Living Dead | hasFile: True | file: Night of the Living Dead (1968) WEBDL-480p.mkv | quality: WEBDL-480p | size: 32613459
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/history?pageSize=5"
+history: downloadFolderImported | dragnet.1951.s01e01.the.human.bomb.720p -> /home/hatch/workspace/arr-lab-work/media/tv/Dragnet (1951)/Season 1/Dragnet (1951) - S01E01 - The Human Bomb SDTV.mkv

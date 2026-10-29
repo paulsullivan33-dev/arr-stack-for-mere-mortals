@@ -1,0 +1,21 @@
+$ ffprobe -v error -show_entries format=duration -of csv=p=0 "downloads/dragnet.1951.s01e01.the.human.bomb.720p.mkv" "downloads/Night of the Living Dead (1968) [1080p].mkv"  (seconds)
+downloads/Night of the Living Dead (1968) [1080p].mkv -> 2400.023000
+downloads/dragnet.1951.s01e01.the.human.bomb.720p.mkv -> 1500.023000
+$ curl -s -H "X-Api-Key: KEY" ".../manualimport?folder=.../downloads"   (both apps, matching after full-length files)
+Sonarr: dragnet.1951.s01e01.the.human.bomb.720p.mkv -> Dragnet (1951) [(1, 1)] | rejections: []
+Radarr: Night of the Living Dead (1968) [1080p].mkv -> Night of the Living Dead | rejections: []
+$ curl -s -X POST ... DownloadedEpisodesScan / DownloadedMoviesScan   (second attempt)
+Sonarr command id: 16
+Radarr command id: 15
+
+$ find media -type f   (the library after import)
+$ ls downloads/
+Night of the Living Dead (1968) [1080p].mkv
+dragnet.1951.s01e01.the.human.bomb.720p.mkv
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/series
+Dragnet (1951) | episodes on disk: 0
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/episodefile?seriesId=1"
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/movie
+Night of the Living Dead | hasFile: False | file: None | quality: None

@@ -1,0 +1,49 @@
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/qualityprofile/4   (Sonarr HD-1080p: the ranked list, allowed rows marked)
+  0 Unknown | allowed: False
+  1 SDTV | allowed: False
+  group WEB 480p | allowed: False | members: ['WEBRip-480p', 'WEBDL-480p']
+  2 DVD | allowed: False
+  13 Bluray-480p | allowed: False
+  22 Bluray-576p | allowed: False
+  4 HDTV-720p | allowed: False
+  9 HDTV-1080p | allowed: True
+  10 Raw-HD | allowed: False
+  group WEB 720p | allowed: False | members: ['WEBRip-720p', 'WEBDL-720p']
+  6 Bluray-720p | allowed: False
+  group WEB 1080p | allowed: True | members: ['WEBRip-1080p', 'WEBDL-1080p']
+  7 Bluray-1080p | allowed: True
+  20 Bluray-1080p Remux | allowed: False
+  16 HDTV-2160p | allowed: False
+  group WEB 2160p | allowed: False | members: ['WEBRip-2160p', 'WEBDL-2160p']
+  19 Bluray-2160p | allowed: False
+  21 Bluray-2160p Remux | allowed: False
+cutoff: 7 (after the lab edit in t06: 7 = Bluray-1080p; as installed it was 9 = HDTV-1080p)
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/qualityprofile/4   (Radarr HD-1080p: note the film-only rows at the top)
+  0 Unknown | allowed: False
+  24 WORKPRINT | allowed: False
+  25 CAM | allowed: False
+  26 TELESYNC | allowed: False
+  27 TELECINE | allowed: False
+  29 REGIONAL | allowed: False
+  28 DVDSCR | allowed: False
+  1 SDTV | allowed: False
+  2 DVD | allowed: False
+  23 DVD-R | allowed: False
+  group WEB 480p | allowed: False | members: ['WEBDL-480p', 'WEBRip-480p']
+  20 Bluray-480p | allowed: False
+  21 Bluray-576p | allowed: False
+  4 HDTV-720p | allowed: False
+  group WEB 720p | allowed: False | members: ['WEBDL-720p', 'WEBRip-720p']
+  6 Bluray-720p | allowed: False
+  9 HDTV-1080p | allowed: True
+  group WEB 1080p | allowed: True | members: ['WEBDL-1080p', 'WEBRip-1080p']
+  7 Bluray-1080p | allowed: True
+  30 Remux-1080p | allowed: True
+  16 HDTV-2160p | allowed: False
+  group WEB 2160p | allowed: False | members: ['WEBDL-2160p', 'WEBRip-2160p']
+  19 Bluray-2160p | allowed: False
+  31 Remux-2160p | allowed: False
+  22 BR-DISK | allowed: False
+  10 Raw-HD | allowed: False
+cutoff: 7 (as installed: 7 = Bluray-1080p)

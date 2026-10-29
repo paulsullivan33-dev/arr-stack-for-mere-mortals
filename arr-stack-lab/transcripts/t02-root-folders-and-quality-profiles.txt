@@ -1,0 +1,36 @@
+$ curl -s -X POST -H "X-Api-Key: KEY" -H "Content-Type: application/json" -d "{\"path\": \".../media/tv\"}" http://localhost:8989/api/v3/rootfolder
+{
+    "path": "/home/hatch/workspace/arr-lab-work/media/tv",
+    "accessible": true,
+    "freeSpace": 190765744128,
+    "unmappedFolders": [],
+    "id": 1
+}
+
+$ curl -s -X POST -H "X-Api-Key: KEY" -H "Content-Type: application/json" -d "{\"path\": \".../media/movies\"}" http://localhost:7878/api/v3/rootfolder
+{
+    "path": "/home/hatch/workspace/arr-lab-work/media/movies",
+    "accessible": true,
+    "freeSpace": 190765744128,
+    "unmappedFolders": [],
+    "id": 1
+}
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/rootfolder   (read back)
+1 /home/hatch/workspace/arr-lab-work/media/tv freeSpace: 190765744128
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/qualityprofile   (Sonarr defaults, names only)
+1 Any cutoff: 1 upgradeAllowed: False
+2 SD cutoff: 1 upgradeAllowed: False
+3 HD-720p cutoff: 4 upgradeAllowed: False
+4 HD-1080p cutoff: 9 upgradeAllowed: False
+5 Ultra-HD cutoff: 16 upgradeAllowed: False
+6 HD - 720p/1080p cutoff: 4 upgradeAllowed: False
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/qualityprofile   (Radarr defaults, names only)
+1 Any cutoff: 20 upgradeAllowed: False
+2 SD cutoff: 20 upgradeAllowed: False
+3 HD-720p cutoff: 6 upgradeAllowed: False
+4 HD-1080p cutoff: 7 upgradeAllowed: False
+5 Ultra-HD cutoff: 31 upgradeAllowed: False
+6 HD - 720p/1080p cutoff: 6 upgradeAllowed: False

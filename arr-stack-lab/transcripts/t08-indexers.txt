@@ -1,0 +1,16 @@
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/indexer   (fresh install: configured indexers)
+[]
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/indexer/schema   (types Sonarr can talk to)
+BroadcasTheNet -> BroadcastheNet
+Fanzub -> Fanzub
+FileList -> FileList
+HDBits -> HDBits
+IP Torrents -> IPTorrents
+Newznab -> Newznab
+Nyaa -> Nyaa
+Torrent RSS Feed -> TorrentRssIndexer
+TorrentLeech -> Torrentleech
+Torznab -> Torznab
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/indexer   (Radarr: configured indexers)
+[]

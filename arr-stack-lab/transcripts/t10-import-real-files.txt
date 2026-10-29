@@ -1,0 +1,21 @@
+$ ffprobe -v error -show_entries format=duration -of csv=p=0 "downloads/dragnet.1951.s01e01.the.human.bomb.720p.mkv"
+150.023000
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/manualimport?folder=.../downloads"   (Sonarr matching, after real files)
+file: dragnet.1951.s01e01.the.human.bomb.720p.mkv -> series: Dragnet (1951) | episode: [(1, 1)] | rejections: ['Sample']
+$ curl -s -X POST -H "X-Api-Key: KEY" -d "{\"name\": \"DownloadedEpisodesScan\", \"path\": \".../downloads\"}" http://localhost:8989/api/v3/command
+command id: 11 | status: queued
+$ curl -s -X POST -H "X-Api-Key: KEY" -d "{\"name\": \"DownloadedMoviesScan\", \"path\": \".../downloads\"}" http://localhost:7878/api/v3/command
+command id: 12 | status: started
+$ find media -type f   (the library after import)
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/series
+Dragnet (1951) | episodes on disk: 0 | sizeOnDisk: 0
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/episode?seriesId=1"   (S01E01 record)
+S01E01 The Human Bomb | hasFile: False | episodeFileId: 0
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/movie
+Night of the Living Dead | hasFile: False | file: None | quality: None
+
+$ ls downloads/   (imported files were moved out of the downloads folder)
+Night of the Living Dead (1968) [1080p].mkv
+dragnet.1951.s01e01.the.human.bomb.720p.mkv

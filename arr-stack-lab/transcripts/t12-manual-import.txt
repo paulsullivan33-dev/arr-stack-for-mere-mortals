@@ -1,0 +1,16 @@
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @mi-sonarr-post.json http://localhost:8989/api/v3/manualimport   (seriesId/episodeIds as top-level fields)
+['/home/hatch/workspace/arr-lab-work/downloads/dragnet.1951.s01e01.the.human.bomb.720p.mkv']
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @mi-radarr-post.json http://localhost:7878/api/v3/manualimport   (movieId as a top-level field)
+['/home/hatch/workspace/arr-lab-work/downloads/Night of the Living Dead (1968) [1080p].mkv']
+
+$ find media -type f   (the library after manual import)
+$ ls -A downloads/   (emptied by the move)
+Night of the Living Dead (1968) [1080p].mkv
+dragnet.1951.s01e01.the.human.bomb.720p.mkv
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/episodefile?seriesId=1"
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/series
+Dragnet (1951) | episodes on disk: 0 / 276
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/movie
+Night of the Living Dead | hasFile: False | file: None | quality: None | size: None

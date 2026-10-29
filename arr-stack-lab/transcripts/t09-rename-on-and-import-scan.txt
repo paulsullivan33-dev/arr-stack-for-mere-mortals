@@ -1,0 +1,17 @@
+$ curl -s -X PUT -H "X-Api-Key: KEY" -d @naming-sonarr-edit.json http://localhost:8989/api/v3/config/naming   (renameEpisodes on)
+renameEpisodes now: True
+$ curl -s -X PUT -H "X-Api-Key: KEY" -d @naming-radarr-edit.json http://localhost:7878/api/v3/config/naming   (renameMovies on)
+renameMovies now: True
+
+$ printf "lab placeholder video (not real footage)" > "downloads/dragnet.1951.s01e01.the.human.bomb.720p.mkv"
+$ printf "lab placeholder video (not real footage)" > "downloads/Night of the Living Dead (1968) [1080p].mkv"
+total 8
+drwxrwx--- 1 root root 172 Oct 29 18:27 .
+drwxrwx--- 1 root root 624 Oct 29 18:26 ..
+-rw-rw---- 1 root root  41 Oct 29 18:27 Night of the Living Dead (1968) [1080p].mkv
+-rw-rw---- 1 root root  41 Oct 29 18:27 dragnet.1951.s01e01.the.human.bomb.720p.mkv
+
+$ curl -s -X POST -H "X-Api-Key: KEY" -d "{\"name\": \"DownloadedEpisodesScan\", \"path\": \".../downloads\"}" http://localhost:8989/api/v3/command
+command id: 6 | name: DownloadedEpisodesScan | status: started
+$ curl -s -X POST -H "X-Api-Key: KEY" -d "{\"name\": \"DownloadedMoviesScan\", \"path\": \".../downloads\"}" http://localhost:7878/api/v3/command
+command id: 7 | name: DownloadedMoviesScan | status: started

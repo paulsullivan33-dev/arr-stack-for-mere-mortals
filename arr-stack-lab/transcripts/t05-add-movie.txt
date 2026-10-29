@@ -1,0 +1,9 @@
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @movie-add.json http://localhost:7878/api/v3/movie   (add Night of the Living Dead (1968))
+id: 1 | title: Night of the Living Dead | year: 1968 | path: /home/hatch/workspace/arr-lab-work/media/movies/Night of the Living Dead (1968) | monitored: True | profile: 4 | hasFile: False
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:7878/api/v3/movie   (library read-back)
+Night of the Living Dead 1968 | monitored: True | hasFile: False
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/config/mediamanagement   (Sonarr folder behaviour)
+createEmptySeriesFolders: False
+(That default — false — is why adding Dragnet made no folder on disk yet: the folder arrives with the first imported file, or at once if you turn the setting on.)

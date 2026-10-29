@@ -1,0 +1,12 @@
+$ mkdir "downloads/Dragnet.1951.S01E02.The.Big.Actor.WEBDL-720p/" and place a full-length S01E02 file inside it
+(a release is normally a FOLDER named for the release, holding the file — the shape a download client leaves behind)
+$ curl -s -X POST -H "X-Api-Key: KEY" -d "{\"name\": \"DownloadedEpisodesScan\", \"path\": \".../downloads\"}" http://localhost:8989/api/v3/command
+command id: 24
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/command/24
+status: completed | result: unsuccessful | message: Failed to import
+$ find media/tv -type f
+media/tv/Dragnet (1951)/Season 1/Dragnet (1951) - S01E01 - The Human Bomb SDTV.mkv
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/series
+Dragnet (1951) | episodes on disk: 1 / 276
+$ ls -A downloads/
+Dragnet.1951.S01E02.The.Big.Actor.WEBDL-720p

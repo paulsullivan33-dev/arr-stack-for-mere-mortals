@@ -1,0 +1,8 @@
+$ curl -sL -o sonarr.tar.gz "https://services.sonarr.tv/v1/download/main/latest?version=4&os=linux&arch=x64"
+$ curl -sL -o radarr.tar.gz "https://radarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64"
+-rw-rw---- 1 root root 106619990 Oct 29 18:22 radarr.tar.gz
+-rw-rw---- 1 root root 102149705 Oct 29 18:22 sonarr.tar.gz
+
+$ ls sonarr/ | head; ls radarr/ (binaries)
+radarr/Radarr
+sonarr/Sonarr

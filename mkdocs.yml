@@ -1,0 +1,28 @@
+site_name: Sonarr and Radarr for Mere Mortals
+site_description: A plain-language guide to Sonarr and Radarr, the library managers that catalogue television and film, track what a collection is missing, and rename and organise what it has. Installing both on one machine, root folders and quality profiles, indexers and download clients, importing files you already have, and calendars and monitoring, with the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/arr-stack-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What the *arr Stack Is: what-the-arr-stack-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Sonarr and Radarr: installing-the-arr-stack.md
+  - Your First Series: your-first-series.md
+  - Quality Profiles and Cutoffs: quality-profiles.md
+  - Indexers and How Search Works: indexers-and-search.md
+  - Connecting a Download Client: connecting-a-download-client.md
+  - Renaming and Organising the Library: renaming-and-organising.md
+  - Importing Files You Already Have: importing-files-you-already-have.md
+  - Calendars and Monitoring: calendars-and-monitoring.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

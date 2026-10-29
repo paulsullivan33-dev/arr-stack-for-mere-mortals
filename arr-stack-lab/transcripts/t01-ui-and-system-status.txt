@@ -1,0 +1,77 @@
+$ curl -s -o /dev/null -w "%{http_code}" http://localhost:8989/   (Sonarr web UI)
+200
+$ curl -s http://localhost:8989/ | grep -o "<title>[^<]*</title>"
+<title>Sonarr</title>
+
+$ curl -s -o /dev/null -w "%{http_code}" http://localhost:7878/   (Radarr web UI)
+200
+$ curl -s http://localhost:7878/ | grep -o "<title>[^<]*</title>"
+<title>Radarr</title>
+
+$ curl -s -H "X-Api-Key: $SONARR_KEY" http://localhost:8989/api/v3/system/status
+{
+    "appName": "Sonarr",
+    "instanceName": "Sonarr",
+    "version": "4.0.20.3014",
+    "buildTime": "2026-09-16T16:37:42Z",
+    "isDebug": false,
+    "isProduction": true,
+    "isAdmin": false,
+    "isUserInteractive": true,
+    "startupPath": "/home/hatch/workspace/arr-lab-work/sonarr",
+    "appData": "/home/hatch/workspace/arr-lab-work/data-sonarr",
+    "osName": "ubuntu",
+    "osVersion": "24.04",
+    "isNetCore": true,
+    "isLinux": true,
+    "isOsx": false,
+    "isWindows": false,
+    "isDocker": false,
+    "mode": "console",
+    "branch": "main",
+    "authentication": "none",
+    "migrationVersion": 217,
+    "urlBase": "",
+    "runtimeVersion": "6.0.13",
+    "runtimeName": ".NET",
+    "startTime": "2026-10-29T18:23:01Z",
+    "packageUpdateMechanism": "builtIn",
+    "databaseVersion": "3.45.1",
+    "databaseType": "sqLite"
+}
+
+$ curl -s -H "X-Api-Key: $RADARR_KEY" http://localhost:7878/api/v3/system/status
+{
+    "appName": "Radarr",
+    "instanceName": "Radarr",
+    "version": "6.4.4.10685",
+    "buildTime": "2026-09-14T15:54:37Z",
+    "isDebug": false,
+    "isProduction": true,
+    "isAdmin": false,
+    "isUserInteractive": true,
+    "startupPath": "/home/hatch/workspace/arr-lab-work/radarr",
+    "appData": "/home/hatch/workspace/arr-lab-work/data-radarr",
+    "osName": "ubuntu",
+    "osVersion": "24.04",
+    "isNetCore": true,
+    "isLinux": true,
+    "isOsx": false,
+    "isWindows": false,
+    "isDocker": false,
+    "isContainerized": false,
+    "mode": "console",
+    "branch": "master",
+    "databaseType": "sqLite",
+    "databaseVersion": "3.53.4",
+    "authentication": "none",
+    "migrationVersion": 242,
+    "urlBase": "",
+    "runtimeVersion": "8.0.27",
+    "runtimeName": "netcore",
+    "startTime": "2026-10-29T18:23:06Z",
+    "packageUpdateMechanism": "builtIn"
+}
+
+$ curl -s http://localhost:8989/api/v3/system/status   (no key — should be refused)
+401

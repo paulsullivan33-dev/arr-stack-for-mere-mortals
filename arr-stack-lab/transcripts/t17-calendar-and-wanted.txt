@@ -1,0 +1,15 @@
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/calendar?start=1951-12-15T00:00:00Z&end=1951-12-18T00:00:00Z"   (the weekend S01E01 first aired)
+S01E01 | The Human Bomb | seriesId: 1 | aired: 1951-12-16T05:00:00Z | hasFile: True
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/wanted/missing?pageSize=3&sortKey=airDateUtc&sortDirection=ascending"
+total missing (monitored, aired, no file): 274
+ e.g. seriesId 1 S01E03 The Big Death | monitored: True
+ e.g. seriesId 1 S01E04 The Big Mother | monitored: True
+ e.g. seriesId 1 S01E05 The Big Cast | monitored: True
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:7878/api/v3/calendar?start=1968-09-28T00:00:00Z&end=1968-10-05T00:00:00Z"   (the film opened that week)
+entries: 1
+  Night of the Living Dead | inCinemas: 1968-10-04T00:00:00Z | physicalRelease: 1978-10-24T00:00:00Z | digitalRelease: 2008-02-19T00:00:00Z
+
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/queue   (nothing is downloading in the lab)
+queue records: 0

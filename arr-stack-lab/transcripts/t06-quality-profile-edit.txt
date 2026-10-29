@@ -1,0 +1,6 @@
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/qualityprofile/4   (HD-1080p, before)
+cutoff: 9 | upgradeAllowed: False | formatItems: 0
+$ curl -s -X PUT -H "X-Api-Key: KEY" -d @qp-sonarr-edit.json http://localhost:8989/api/v3/qualityprofile/4   (cutoff 7 = Bluray-1080p, upgrades on)
+(accepted)
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/qualityprofile/4   (read back)
+cutoff: 7 | upgradeAllowed: True

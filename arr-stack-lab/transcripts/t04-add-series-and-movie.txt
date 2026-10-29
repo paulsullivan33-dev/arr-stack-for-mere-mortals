@@ -1,0 +1,30 @@
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @series-add.json http://localhost:8989/api/v3/series   (add Dragnet (1951), profile HD-1080p, no search on add)
+id: 1 | title: Dragnet (1951) | path: /home/hatch/workspace/arr-lab-work/media/tv/Dragnet (1951) | monitored: True | seasons: 9 | profile: 4
+
+$ curl -s -X POST -H "X-Api-Key: KEY" -d @movie-add.json http://localhost:7878/api/v3/movie   (add Night of the Living Dead (1968), profile HD-1080p, no search on add)
+curl: option -d: error encountered when reading a file
+curl: try 'curl --help' or 'curl --manual' for more information
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+$ ls media/tv media/movies   (folders the apps created on add)
+media/movies:
+
+media/tv:
+
+$ curl -s -H "X-Api-Key: KEY" "http://localhost:8989/api/v3/calendar?start=2026-10-26T00:00:00Z&end=2026-11-02T00:00:00Z&unmonitored=false"  (ended series: expect empty, it aired in the 1950s)
+[]
+$ curl -s -H "X-Api-Key: KEY" http://localhost:8989/api/v3/series   (library, one line)
+Dragnet (1951) | episodes: 276 | on disk: 0
