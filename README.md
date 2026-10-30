@@ -191,6 +191,7 @@ This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io
 Related guides:
 
 - [SABnzbd for Mere Mortals](https://paulsullivan33-dev.github.io/sabnzbd-for-mere-mortals/)
+- [Usenet for Mere Mortals](https://paulsullivan33-dev.github.io/usenet-for-mere-mortals/)
 - [Backups for Mere Mortals](https://paulsullivan33-dev.github.io/backups-for-mere-mortals/)
 
 ## License

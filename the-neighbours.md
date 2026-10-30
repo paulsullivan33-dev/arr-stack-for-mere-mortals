@@ -31,7 +31,7 @@ others appear in the same Download Clients list). The stack
 is even-handed: it sends work to whichever client you
 register, seeds and all, and imports the result the same
 way. This guide registered the Usenet client because the
-series' Usenet guide gives it context; the mechanics on the
+series' [Usenet guide](https://paulsullivan33-dev.github.io/usenet-for-mere-mortals/) gives it context; the mechanics on the
 stack's side are identical.
 
 ## Prowlarr — the switchboard cousin
